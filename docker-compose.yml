@@ -6,8 +6,11 @@ services:
     ports:
       - 80:80
     depends_on:
-      - api
-      - frontend
+      api:
+        condition: service_healthy
+    depends_on:
+      frontend:
+        condition: service_healthy
     restart: always
 
   frontend:
@@ -33,6 +36,12 @@ services:
     depends_on:
       mongodb:
         condition: service_healthy
+    healthcheck:
+      interval: 2s
+      timeout: 20s 
+      retries: 5
+      start_period: 5s
+      test: false
 
   init:
     image: okteto/movies-with-compose:api
@@ -62,12 +71,6 @@ services:
       - 27017
     volumes:
       - data:/bitnami/mongodb
-    healthcheck:
-      interval: 2s
-      timeout: 20s 
-      retries: 5
-      start_period: 5s
-      test: false
 
 volumes:
   data:
