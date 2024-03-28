@@ -40,7 +40,7 @@ services:
       timeout: 20s 
       retries: 5
       start_period: 5s
-      test: ["CMD", "ls", "/tmp/allourbasearebelongtous", "2>/dev/null"]
+      test: ["CMD-SHELL", "ls /tmp/allourbasearebelongtous 2>/dev/null"]
 
   init:
     image: okteto/movies-with-compose:api
