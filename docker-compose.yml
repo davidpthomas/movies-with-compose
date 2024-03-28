@@ -38,7 +38,7 @@ services:
       timeout: 1m
       retries: 5
       start_period: 5s
-      test: ls -1 /tmp yarn-*
+      test: ls -1 /tmp/yarn-*
 
   init:
     image: okteto/movies-with-compose:api
