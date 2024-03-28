@@ -8,7 +8,6 @@ services:
     depends_on:
       api:
         condition: service_healthy
-    depends_on:
       frontend:
         condition: service_healthy
     restart: always
