@@ -33,6 +33,12 @@ services:
     depends_on:
       mongodb:
         condition: service_healthy
+    healthcheck:
+      internval: 10s
+      timeout: 1min
+      retries: 5
+      start_period: 5s
+      test: exit 1
 
   init:
     image: okteto/movies-with-compose:api
