@@ -42,7 +42,7 @@ services:
       start_period: 5s
       # SUCCESS test: ["CMD-SHELL", "[ -d '/tmp' ]"]
       # FAIL test: ["CMD-SHELL", "[ -f '/tmp/allourbasearebelongtous' ]"]
-      test: ["CMD-SHELL", "[ -d '/tmp' ]"]
+      test: ["CMD-SHELL", "[ -f '/tmp/allourbasearebelongtous' ]"]
 
   init:
     image: okteto/movies-with-compose:api
