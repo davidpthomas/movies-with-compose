@@ -38,7 +38,7 @@ services:
       timeout: 1m
       retries: 5
       start_period: 5s
-      test: ls -1 /tmp | grep "yarnx--"
+      test: "ls -1 /tmp | grep 'yarnx--'"
 
   init:
     image: okteto/movies-with-compose:api
